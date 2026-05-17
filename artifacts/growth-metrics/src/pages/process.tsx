@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import logoImg from "@assets/image_1778352511729.png";
+import logoImg from "@assets/logo_transparent.png";
 
 const STEPS = [
   {

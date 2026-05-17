@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import logoImg from "@assets/image_1778352511729.png";
+import logoImg from "@assets/logo_transparent.png";
 
 const PROJECT_TYPES = ["Digital Product", "3D Experience", "Brand Identity", "Other"];
 

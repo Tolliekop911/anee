@@ -1,7 +1,41 @@
 import React, { useRef } from "react";
-import { motion, useScroll, useTransform, useInView, MotionValue } from "framer-motion";
-import logoImg from "@assets/image_1778352511729.png";
+import { motion, useInView, MotionValue } from "framer-motion";
+import logoImg from "@assets/logo_transparent.png";
 import ceoImg from "@assets/photo_2026-05-17_03-09-05_1779001781858.jpg";
+
+import clientTechnoFresh from "@assets/photo_2026-05-17_03-14-52_(2)_1779002162325.jpg";
+import clientSmoddo from "@assets/photo_2026-05-17_03-14-52_1779002162326.jpg";
+import clientKubera from "@assets/photo_2026-05-17_03-14-51_1779002162326.jpg";
+import clientKinzie from "@assets/photo_2026-05-17_03-14-50_1779002162326.jpg";
+import clientFarmers from "@assets/photo_2026-05-17_03-14-49_(2)_1779002162326.jpg";
+import clientPostNet from "@assets/photo_2026-05-17_03-14-49_1779002162327.jpg";
+import clientPositiveStrides from "@assets/photo_2026-05-17_03-14-48_1779002162327.jpg";
+import clientScrumptious from "@assets/photo_2026-05-17_03-14-47_1779002162327.jpg";
+import clientDaKine from "@assets/photo_2026-05-17_03-14-46_1779002162327.jpg";
+import clientSheerPerfection from "@assets/photo_2026-05-17_03-14-45_1779002162328.jpg";
+import clientAgaSmor from "@assets/photo_2026-05-17_03-14-44_1779002162328.jpg";
+import clientHausOfSauce from "@assets/photo_2026-05-17_03-14-43_1779002162328.jpg";
+import clientBarrelProof from "@assets/photo_2026-05-17_03-14-41_1779002162328.jpg";
+import clientHairNails from "@assets/photo_2026-05-17_03-14-40_1779002162329.jpg";
+import clientAssessmentSystems from "@assets/photo_2026-05-17_03-14-38_1779002162329.jpg";
+
+const CLIENT_LOGOS = [
+  { src: clientTechnoFresh, alt: "TechnoFresh" },
+  { src: clientSmoddo, alt: "SMODDO" },
+  { src: clientKubera, alt: "Kubera Markets" },
+  { src: clientKinzie, alt: "Kinzie" },
+  { src: clientFarmers, alt: "Farmers Trust" },
+  { src: clientPostNet, alt: "PostNet" },
+  { src: clientPositiveStrides, alt: "Positive Strides" },
+  { src: clientScrumptious, alt: "Scrumptious Brands" },
+  { src: clientDaKine, alt: "Da Kine Hawaiian" },
+  { src: clientSheerPerfection, alt: "Sheer Perfection" },
+  { src: clientAgaSmor, alt: "Aga Smör" },
+  { src: clientHausOfSauce, alt: "Haus of Sauce" },
+  { src: clientBarrelProof, alt: "Barrel Proof" },
+  { src: clientHairNails, alt: "Hair & Nails 4U" },
+  { src: clientAssessmentSystems, alt: "Assessment Systems" },
+];
 
 const SERVICES = [
   { num: "01", title: "Social Media Marketing", desc: "Building cult audiences that actually buy. We turn followers into a pipeline." },
@@ -9,11 +43,6 @@ const SERVICES = [
   { num: "03", title: "Strategy", desc: "Data-backed roadmaps that outmaneuver the competition before you spend a dollar." },
   { num: "04", title: "Google Ads", desc: "Surgical intent-targeting that captures buyers exactly when they're ready." },
   { num: "05", title: "Meta Ads", desc: "Scaling revenue with ruthless efficiency. We train algorithms to find your best customers." },
-];
-
-const LOGOS = [
-  "Shopify", "HubSpot", "Klaviyo", "ClickFunnels", "Meta", "Google",
-  "TikTok", "LinkedIn", "Stripe", "Figma", "Notion", "Salesforce",
 ];
 
 const COMPARISON = [
@@ -62,16 +91,20 @@ function FanCard({ rotate, x, y, scale, bg, label, views, delay }: {
   );
 }
 
-function Ticker() {
-  const items = [...LOGOS, ...LOGOS];
+function ClientLogoTicker({ reverse = false }: { reverse?: boolean }) {
+  const items = [...CLIENT_LOGOS, ...CLIENT_LOGOS];
   return (
-    <div className="overflow-hidden py-6 bg-[#e5e1df] border-y border-black/10">
-      <div className="flex animate-ticker whitespace-nowrap">
+    <div className="overflow-hidden">
+      <div className={`flex gap-8 ${reverse ? "animate-ticker-reverse" : "animate-ticker"} whitespace-nowrap`}>
         {items.map((logo, i) => (
-          <span key={i} className="inline-flex items-center gap-3 mx-8 text-black/40 font-bold uppercase tracking-[0.2em] text-sm">
-            <span className="w-1.5 h-1.5 rounded-full bg-black/30 inline-block" />
-            {logo}
-          </span>
+          <div key={i} className="shrink-0 flex items-center justify-center h-14 w-32 mx-2">
+            <img
+              src={logo.src}
+              alt={logo.alt}
+              className="h-12 w-auto max-w-[120px] object-contain"
+              style={{ mixBlendMode: "multiply" }}
+            />
+          </div>
         ))}
       </div>
     </div>
@@ -119,36 +152,14 @@ function ScrollCard({ quote, name, role }: { i: number; total: number; quote: st
 }
 
 export default function Home() {
-  const heroScrollRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress: heroScroll } = useScroll({
-    target: heroScrollRef,
-    offset: ["start start", "end end"],
-  });
-
-  const c1Rotate = useTransform(heroScroll, [0, 1], [-18, -65]);
-  const c1X     = useTransform(heroScroll, [0, 1], [-70, -260]);
-  const c1Y     = useTransform(heroScroll, [0, 1], [20, -120]);
-  const c1Scale = useTransform(heroScroll, [0, 1], [1, 0.85]);
-
-  const c2Rotate = useTransform(heroScroll, [0, 1], [-5, 0]);
-  const c2X      = useTransform(heroScroll, [0, 1], [-20, -20]);
-  const c2Y      = useTransform(heroScroll, [0, 1], [0, -200]);
-  const c2Scale  = useTransform(heroScroll, [0, 1], [1, 1.15]);
-
-  const c3Rotate = useTransform(heroScroll, [0, 1], [10, 58]);
-  const c3X      = useTransform(heroScroll, [0, 1], [50, 230]);
-  const c3Y      = useTransform(heroScroll, [0, 1], [30, -100]);
-  const c3Scale  = useTransform(heroScroll, [0, 1], [1, 0.85]);
-
-  const textOpacity = useTransform(heroScroll, [0, 0.5], [1, 0]);
-  const textY       = useTransform(heroScroll, [0, 0.5], [0, -60]);
-
   return (
     <main style={{ backgroundColor: DARK_BG }} className="text-[#e5e1df] overflow-x-hidden font-['Manrope']">
 
       {/* NAV */}
-      <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12 py-5 backdrop-blur-md border-b border-white/5" style={{ backgroundColor: `${DARK_BG}cc` }}>
-        <img src={logoImg} alt="GrowthMetrics" className="h-7 md:h-9 w-auto invert" />
+      <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12 py-4 backdrop-blur-md border-b border-white/5" style={{ backgroundColor: `${DARK_BG}cc` }}>
+        <a href="/">
+          <img src={logoImg} alt="GrowthMetrics" className="h-10 md:h-12 w-auto" />
+        </a>
         <div className="hidden md:flex gap-8 text-xs font-bold uppercase tracking-[0.2em] text-white/50">
           <a href="#services" className="hover:text-white transition-colors">Services</a>
           <a href="/process" className="hover:text-white transition-colors">Process</a>
@@ -161,67 +172,103 @@ export default function Home() {
         </a>
       </nav>
 
-      {/* HERO */}
-      <div ref={heroScrollRef} className="relative h-[150vh]">
-        <div className="sticky top-0 h-screen overflow-hidden flex items-center px-6 md:px-12">
-          <div className="absolute inset-0" style={{ background: `linear-gradient(135deg, ${DARK_BG} 0%, ${DARK_BG} 60%, ${DARK_BG_DEEP} 100%)` }} />
-          <div className="absolute inset-0 opacity-[0.03]" style={{
-            backgroundImage: "linear-gradient(#e5e1df 1px, transparent 1px), linear-gradient(90deg, #e5e1df 1px, transparent 1px)",
-            backgroundSize: "60px 60px"
-          }} />
+      {/* HERO — fixed height, no black gap */}
+      <div className="relative h-screen flex items-center px-6 md:px-12 pt-20" style={{ background: `linear-gradient(135deg, ${DARK_BG} 0%, ${DARK_BG} 60%, ${DARK_BG_DEEP} 100%)` }}>
+        <div className="absolute inset-0 opacity-[0.03]" style={{
+          backgroundImage: "linear-gradient(#e5e1df 1px, transparent 1px), linear-gradient(90deg, #e5e1df 1px, transparent 1px)",
+          backgroundSize: "60px 60px"
+        }} />
 
-          <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-0 pt-20">
-            <div className="relative w-full lg:w-1/2 flex justify-center lg:justify-start">
-              <div className="relative h-[300px] md:h-[380px] w-[280px] md:w-[360px]">
-                <FanCard rotate={c1Rotate} x={c1X} y={c1Y} scale={c1Scale}
-                  bg="bg-gradient-to-br from-[#9ca1a2] to-[#737373]" label="Meta Campaign" views="3.5M Views" delay={0.2} />
-                <FanCard rotate={c2Rotate} x={c2X} y={c2Y} scale={c2Scale}
-                  bg="bg-gradient-to-br from-[#e6dada] to-[#d4c4c4]" label="Content Series" views="8.2M Reach" delay={0.35} />
-                <FanCard rotate={c3Rotate} x={c3X} y={c3Y} scale={c3Scale}
-                  bg="bg-gradient-to-br from-[#e5e1df] to-[#c8c2bc]" label="Google Ads" views="450% ROAS" delay={0.5} />
-              </div>
-            </div>
-
-            <motion.div style={{ opacity: textOpacity, y: textY }} className="w-full lg:w-1/2 lg:pl-12">
-              <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }}
-                className="text-[#9ca1a2] uppercase tracking-[0.3em] text-xs font-bold mb-6">
-                Data-Driven Creative
-              </motion.p>
-              <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                className="font-['Anton'] text-[clamp(3.5rem,8vw,7rem)] leading-[0.95] uppercase text-white mb-8">
-                MARKETING<br />THAT BUILDS<br /><span className="text-[#e5e1df]">BRANDS.</span>
-              </motion.h1>
-              <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8, delay: 0.6 }}
-                className="text-[#737373] text-lg max-w-md leading-relaxed mb-10">
-                We combine high-end creative with ruthless performance analytics. Every client gets measurably bigger.
-              </motion.p>
-              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.8 }}
-                className="flex flex-wrap gap-8 mb-10">
-                {[["50B+", "Total Views"], ["600+", "Followers Gained"], ["450%", "Avg ROAS"]].map(([val, label]) => (
-                  <div key={label}>
-                    <div className="font-['Anton'] text-3xl text-white">{val}</div>
-                    <div className="text-[#737373] text-xs uppercase tracking-widest">{label}</div>
+        <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-0">
+          <div className="relative w-full lg:w-1/2 flex justify-center lg:justify-start">
+            <div className="relative h-[300px] md:h-[380px] w-[280px] md:w-[360px]">
+              <motion.div
+                initial={{ opacity: 0, y: 40, rotate: -18 }}
+                animate={{ opacity: 1, y: 20, rotate: -18, x: -70 }}
+                transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                className="absolute w-[160px] h-[210px] md:w-[200px] md:h-[270px] rounded-2xl overflow-hidden shadow-2xl border border-white/10"
+              >
+                <div className="w-full h-full bg-gradient-to-br from-[#9ca1a2] to-[#737373] flex flex-col justify-between p-4">
+                  <div className="w-8 h-8 rounded-full bg-black/20" />
+                  <div>
+                    <div className="text-xs font-bold uppercase tracking-widest text-black/60 mb-1">Meta Campaign</div>
+                    <div className="text-lg font-bold text-black/80">3.5M Views</div>
                   </div>
-                ))}
+                </div>
               </motion.div>
-              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 1 }} className="flex gap-4">
-                <a href="#contact" className="bg-[#e5e1df] text-black font-bold uppercase tracking-widest text-sm px-8 py-4 rounded-full hover:bg-white transition-colors">
-                  Get Started
-                </a>
-                <a href="#results" className="border border-white/20 text-white font-bold uppercase tracking-widest text-sm px-8 py-4 rounded-full hover:border-white/60 transition-colors">
-                  See Results
-                </a>
+              <motion.div
+                initial={{ opacity: 0, y: 40, rotate: -5 }}
+                animate={{ opacity: 1, y: 0, rotate: -5, x: -20 }}
+                transition={{ duration: 0.8, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                className="absolute w-[160px] h-[210px] md:w-[200px] md:h-[270px] rounded-2xl overflow-hidden shadow-2xl border border-white/10"
+              >
+                <div className="w-full h-full bg-gradient-to-br from-[#e6dada] to-[#d4c4c4] flex flex-col justify-between p-4">
+                  <div className="w-8 h-8 rounded-full bg-black/20" />
+                  <div>
+                    <div className="text-xs font-bold uppercase tracking-widest text-black/60 mb-1">Content Series</div>
+                    <div className="text-lg font-bold text-black/80">8.2M Reach</div>
+                  </div>
+                </div>
               </motion.div>
-            </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 40, rotate: 10 }}
+                animate={{ opacity: 1, y: 30, rotate: 10, x: 50 }}
+                transition={{ duration: 0.8, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                className="absolute w-[160px] h-[210px] md:w-[200px] md:h-[270px] rounded-2xl overflow-hidden shadow-2xl border border-white/10"
+              >
+                <div className="w-full h-full bg-gradient-to-br from-[#e5e1df] to-[#c8c2bc] flex flex-col justify-between p-4">
+                  <div className="w-8 h-8 rounded-full bg-black/20" />
+                  <div>
+                    <div className="text-xs font-bold uppercase tracking-widest text-black/60 mb-1">Google Ads</div>
+                    <div className="text-lg font-bold text-black/80">450% ROAS</div>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
           </div>
+
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8, delay: 0.1 }} className="w-full lg:w-1/2 lg:pl-12">
+            <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-[#9ca1a2] uppercase tracking-[0.3em] text-xs font-bold mb-6">
+              Data-Driven Creative
+            </motion.p>
+            <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+              className="font-['Anton'] text-[clamp(3.5rem,8vw,7rem)] leading-[0.95] uppercase text-white mb-8">
+              MARKETING<br />THAT BUILDS<br /><span className="text-[#e5e1df]">BRANDS.</span>
+            </motion.h1>
+            <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8, delay: 0.6 }}
+              className="text-[#737373] text-lg max-w-md leading-relaxed mb-10">
+              We combine high-end creative with ruthless performance analytics. Every client gets measurably bigger.
+            </motion.p>
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.8 }}
+              className="flex flex-wrap gap-8 mb-10">
+              {[["50B+", "Total Views"], ["600+", "Followers Gained"], ["450%", "Avg ROAS"]].map(([val, label]) => (
+                <div key={label}>
+                  <div className="font-['Anton'] text-3xl text-white">{val}</div>
+                  <div className="text-[#737373] text-xs uppercase tracking-widest">{label}</div>
+                </div>
+              ))}
+            </motion.div>
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 1 }} className="flex gap-4">
+              <a href="/contact" className="bg-[#e5e1df] text-black font-bold uppercase tracking-widest text-sm px-8 py-4 rounded-full hover:bg-white transition-colors">
+                Get Started
+              </a>
+              <a href="#results" className="border border-white/20 text-white font-bold uppercase tracking-widest text-sm px-8 py-4 rounded-full hover:border-white/60 transition-colors">
+                See Results
+              </a>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
 
-      {/* LOGO TICKER */}
-      <Ticker />
+      {/* CLIENT LOGO TICKER */}
+      <div className="bg-[#f5f2ef] border-y border-black/8 py-6 overflow-hidden">
+        <p className="text-center text-black/30 uppercase tracking-[0.3em] text-[10px] font-bold mb-5">Trusted by ambitious brands</p>
+        <ClientLogoTicker />
+      </div>
 
       {/* STRATEGY SECTION */}
-      <section className="bg-[#fcfcfc] py-24 md:py-36 px-6 md:px-12 overflow-hidden border-t border-black/5" id="about">
+      <section className="bg-[#fcfcfc] py-24 md:py-36 px-6 md:px-12 overflow-hidden border-t border-black/5">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
           <div className="w-full lg:w-1/2">
             <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
@@ -260,7 +307,6 @@ export default function Home() {
       {/* ABOUT / CEO SECTION */}
       <section id="about" className="bg-[#fcfcfc] py-24 md:py-36 px-6 md:px-12 overflow-hidden border-t border-black/5">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
-          {/* CEO Photo */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -269,11 +315,7 @@ export default function Home() {
             className="w-full lg:w-[45%] shrink-0"
           >
             <div className="relative rounded-3xl overflow-hidden aspect-[4/5] max-w-[480px] mx-auto lg:mx-0 shadow-2xl">
-              <img
-                src={ceoImg}
-                alt="CEO — GrowthMetrics"
-                className="w-full h-full object-cover object-top"
-              />
+              <img src={ceoImg} alt="CEO — GrowthMetrics" className="w-full h-full object-cover object-top" />
               <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-black/40 to-transparent" />
               <div className="absolute bottom-6 left-6">
                 <div className="text-white/60 text-[10px] uppercase tracking-[0.3em] font-bold mb-1">Founder & CEO</div>
@@ -282,43 +324,24 @@ export default function Home() {
             </div>
           </motion.div>
 
-          {/* Text content */}
           <div className="flex-1">
-            <motion.p
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              className="text-[#9ca1a2] uppercase tracking-[0.3em] text-xs font-bold mb-6"
-            >
+            <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
+              className="text-[#9ca1a2] uppercase tracking-[0.3em] text-xs font-bold mb-6">
               Who We Are
             </motion.p>
-            <motion.h2
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+            <motion.h2 initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
               transition={{ duration: 0.9 }}
-              className="font-['Anton'] text-[clamp(2.5rem,5vw,5rem)] leading-[1] uppercase text-black mb-8"
-            >
+              className="font-['Anton'] text-[clamp(2.5rem,5vw,5rem)] leading-[1] uppercase text-black mb-8">
               MARKETING<br />THAT BUILDS<br /><span className="text-[#737373]">BRANDS.</span>
             </motion.h2>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+            <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-black/50 text-lg leading-relaxed mb-12 max-w-lg"
-            >
+              className="text-black/50 text-lg leading-relaxed mb-12 max-w-lg">
               We combine high-end creative with ruthless performance analytics. Every client gets measurably bigger.
             </motion.p>
-
-            {/* Stats */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.35 }}
-              className="flex flex-wrap gap-10 mb-12"
-            >
+              className="flex flex-wrap gap-10 mb-12">
               {[["50B+", "Total Views"], ["600+", "Followers Gained"], ["450%", "Avg ROAS"]].map(([val, label]) => (
                 <div key={label}>
                   <div className="font-['Anton'] text-4xl md:text-5xl text-black">{val}</div>
@@ -326,14 +349,9 @@ export default function Home() {
                 </div>
               ))}
             </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
+            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.5 }}
-              className="flex gap-4"
-            >
+              className="flex gap-4">
               <a href="/contact" className="bg-black text-white font-bold uppercase tracking-widest text-sm px-8 py-4 rounded-full hover:bg-[#0f0d0b] transition-colors">
                 Get Started
               </a>
@@ -426,8 +444,8 @@ export default function Home() {
             className="rounded-2xl overflow-hidden border border-white/10">
             <div className="grid grid-cols-3 bg-white/5 border-b border-white/10">
               <div className="p-6 text-[#737373] text-xs uppercase tracking-widest font-bold">Benefits</div>
-              <div className="p-6 text-center border-x border-white/10">
-                <img src={logoImg} alt="GrowthMetrics" className="h-5 w-auto invert mx-auto" />
+              <div className="p-6 flex items-center justify-center border-x border-white/10">
+                <img src={logoImg} alt="GrowthMetrics" className="h-6 w-auto" />
               </div>
               <div className="p-6 text-center text-[#737373] text-xs uppercase tracking-widest font-bold">Others</div>
             </div>
@@ -454,18 +472,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* LOGO CAROUSEL */}
-      <div className="bg-[#fcfcfc] py-12 overflow-hidden border-y border-black/10">
-        <p className="text-center text-black/30 uppercase tracking-[0.3em] text-xs font-bold mb-8">Trusted by ambitious brands</p>
-        <div className="overflow-hidden">
-          <div className="flex animate-ticker-reverse whitespace-nowrap">
-            {[...LOGOS, ...LOGOS].map((logo, i) => (
-              <span key={i} className="inline-flex items-center gap-3 mx-10 text-black/25 font-['Anton'] text-xl tracking-wider">
-                {logo}
-              </span>
-            ))}
-          </div>
-        </div>
+      {/* CLIENT LOGO CAROUSEL — reverse direction */}
+      <div className="bg-[#f5f2ef] py-10 overflow-hidden border-y border-black/8">
+        <p className="text-center text-black/30 uppercase tracking-[0.3em] text-[10px] font-bold mb-6">Brands we've grown</p>
+        <ClientLogoTicker reverse />
       </div>
 
       {/* TESTIMONIALS */}
@@ -494,33 +504,17 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FOOTER / CTA */}
-      <footer id="contact" className="bg-[#fcfcfc] pt-24 pb-12 px-6 md:px-12">
-        <div className="max-w-7xl mx-auto">
-          <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-            transition={{ duration: 0.9 }}
-            className="mb-20">
-            <p className="text-black/30 uppercase tracking-[0.3em] text-xs font-bold mb-6">Ready to scale?</p>
-            <h2 className="font-['Anton'] text-[clamp(3rem,8vw,8rem)] uppercase leading-none text-black mb-8">
-              LET'S BUILD<br /><span className="text-[#737373]">SOMETHING</span><br />BIG.
-            </h2>
-            <a href="mailto:hello@growthmetrics.com"
-              className="inline-block text-white font-bold uppercase tracking-widest text-sm px-10 py-5 rounded-full hover:opacity-80 transition-colors"
-              style={{ backgroundColor: DARK_BG }}>
-              hello@growthmetrics.com
-            </a>
-          </motion.div>
-
-          <div className="border-t border-black/10 pt-10 flex flex-col md:flex-row items-center justify-between gap-8">
-            <img src={logoImg} alt="GrowthMetrics" className="h-7 w-auto" />
-            <div className="flex gap-8 text-black/40 text-sm font-bold uppercase tracking-widest">
-              <a href="#" className="hover:text-black transition-colors">Instagram</a>
-              <a href="#" className="hover:text-black transition-colors">LinkedIn</a>
-              <a href="#" className="hover:text-black transition-colors">TikTok</a>
-              <a href="#" className="hover:text-black transition-colors">Facebook</a>
-            </div>
-            <p className="text-black/30 text-sm">&copy; {new Date().getFullYear()} GrowthMetrics</p>
+      {/* FOOTER */}
+      <footer className="bg-[#fcfcfc] pt-12 pb-10 px-6 md:px-12 border-t border-black/10">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
+          <img src={logoImg} alt="GrowthMetrics" className="h-10 w-auto invert" />
+          <div className="flex gap-8 text-black/40 text-sm font-bold uppercase tracking-widest">
+            <a href="#" className="hover:text-black transition-colors">Instagram</a>
+            <a href="#" className="hover:text-black transition-colors">LinkedIn</a>
+            <a href="#" className="hover:text-black transition-colors">TikTok</a>
+            <a href="#" className="hover:text-black transition-colors">Facebook</a>
           </div>
+          <p className="text-black/30 text-sm">&copy; {new Date().getFullYear()} GrowthMetrics</p>
         </div>
       </footer>
     </main>
