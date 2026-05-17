@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform, useInView, MotionValue } from "framer-motion";
 import logoImg from "@assets/image_1778352511729.png";
+import ceoImg from "@assets/photo_2026-05-17_03-09-05_1779001781858.jpg";
 
 const SERVICES = [
   { num: "01", title: "Social Media Marketing", desc: "Building cult audiences that actually buy. We turn followers into a pipeline." },
@@ -161,7 +162,7 @@ export default function Home() {
       </nav>
 
       {/* HERO */}
-      <div ref={heroScrollRef} className="relative h-[220vh]">
+      <div ref={heroScrollRef} className="relative h-[150vh]">
         <div className="sticky top-0 h-screen overflow-hidden flex items-center px-6 md:px-12">
           <div className="absolute inset-0" style={{ background: `linear-gradient(135deg, ${DARK_BG} 0%, ${DARK_BG} 60%, ${DARK_BG_DEEP} 100%)` }} />
           <div className="absolute inset-0 opacity-[0.03]" style={{
@@ -252,6 +253,94 @@ export default function Home() {
                 <div className="text-white/40 text-xs uppercase tracking-widest mt-2">{label}</div>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ABOUT / CEO SECTION */}
+      <section id="about" className="bg-[#fcfcfc] py-24 md:py-36 px-6 md:px-12 overflow-hidden border-t border-black/5">
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
+          {/* CEO Photo */}
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+            className="w-full lg:w-[45%] shrink-0"
+          >
+            <div className="relative rounded-3xl overflow-hidden aspect-[4/5] max-w-[480px] mx-auto lg:mx-0 shadow-2xl">
+              <img
+                src={ceoImg}
+                alt="CEO — GrowthMetrics"
+                className="w-full h-full object-cover object-top"
+              />
+              <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-black/40 to-transparent" />
+              <div className="absolute bottom-6 left-6">
+                <div className="text-white/60 text-[10px] uppercase tracking-[0.3em] font-bold mb-1">Founder & CEO</div>
+                <div className="text-white font-['Anton'] text-2xl uppercase">GrowthMetrics</div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Text content */}
+          <div className="flex-1">
+            <motion.p
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              className="text-[#9ca1a2] uppercase tracking-[0.3em] text-xs font-bold mb-6"
+            >
+              Who We Are
+            </motion.p>
+            <motion.h2
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.9 }}
+              className="font-['Anton'] text-[clamp(2.5rem,5vw,5rem)] leading-[1] uppercase text-black mb-8"
+            >
+              MARKETING<br />THAT BUILDS<br /><span className="text-[#737373]">BRANDS.</span>
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-black/50 text-lg leading-relaxed mb-12 max-w-lg"
+            >
+              We combine high-end creative with ruthless performance analytics. Every client gets measurably bigger.
+            </motion.p>
+
+            {/* Stats */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.35 }}
+              className="flex flex-wrap gap-10 mb-12"
+            >
+              {[["50B+", "Total Views"], ["600+", "Followers Gained"], ["450%", "Avg ROAS"]].map(([val, label]) => (
+                <div key={label}>
+                  <div className="font-['Anton'] text-4xl md:text-5xl text-black">{val}</div>
+                  <div className="text-black/40 text-xs uppercase tracking-widest mt-1">{label}</div>
+                </div>
+              ))}
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="flex gap-4"
+            >
+              <a href="/contact" className="bg-black text-white font-bold uppercase tracking-widest text-sm px-8 py-4 rounded-full hover:bg-[#0f0d0b] transition-colors">
+                Get Started
+              </a>
+              <a href="#results" className="border border-black/20 text-black font-bold uppercase tracking-widest text-sm px-8 py-4 rounded-full hover:border-black/60 transition-colors">
+                See Results
+              </a>
+            </motion.div>
           </div>
         </div>
       </section>
