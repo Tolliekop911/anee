@@ -1,8 +1,6 @@
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform, useInView, MotionValue } from "framer-motion";
 import logoImg from "@assets/image_1778352511729.png";
-import workImg1 from "@assets/photo_2026-05-17_02-56-26_1779001006086.jpg";
-import workImg2 from "@assets/photo_2026-05-17_02-56-29_1779001006085.jpg";
 
 const SERVICES = [
   { num: "01", title: "Social Media Marketing", desc: "Building cult audiences that actually buy. We turn followers into a pipeline." },
@@ -152,12 +150,12 @@ export default function Home() {
         <img src={logoImg} alt="GrowthMetrics" className="h-7 md:h-9 w-auto invert" />
         <div className="hidden md:flex gap-8 text-xs font-bold uppercase tracking-[0.2em] text-white/50">
           <a href="#services" className="hover:text-white transition-colors">Services</a>
-          <a href="#work" className="hover:text-white transition-colors">Work</a>
+          <a href="/process" className="hover:text-white transition-colors">Process</a>
           <a href="#results" className="hover:text-white transition-colors">Results</a>
           <a href="#about" className="hover:text-white transition-colors">About</a>
-          <a href="#contact" className="hover:text-white transition-colors">Contact</a>
+          <a href="/contact" className="hover:text-white transition-colors">Contact</a>
         </div>
-        <a href="#contact" className="bg-[#e5e1df] text-black text-xs font-bold uppercase tracking-widest px-5 py-2.5 rounded-full hover:bg-white transition-colors">
+        <a href="/contact" className="bg-[#e5e1df] text-black text-xs font-bold uppercase tracking-widest px-5 py-2.5 rounded-full hover:bg-white transition-colors">
           Work With Us
         </a>
       </nav>
@@ -220,61 +218,6 @@ export default function Home() {
 
       {/* LOGO TICKER */}
       <Ticker />
-
-      {/* FEATURED WORK — two photo previews */}
-      <section id="work" className="bg-[#fcfcfc] py-24 md:py-36 px-6 md:px-12 overflow-hidden">
-        <div className="max-w-7xl mx-auto">
-          <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
-            className="text-[#9ca1a2] uppercase tracking-[0.3em] text-xs font-bold mb-4">
-            Our Work
-          </motion.p>
-          <motion.h2 initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-            transition={{ duration: 0.9 }}
-            className="font-['Anton'] text-[clamp(2.5rem,5vw,5rem)] leading-[1] uppercase text-black mb-16">
-            BUILT TO<br /><span className="text-[#737373]">PERFORM.</span>
-          </motion.h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.1 }}
-              className="group relative overflow-hidden rounded-2xl border border-black/10 shadow-sm"
-            >
-              <img
-                src={workImg1}
-                alt="Campaign — Process Workflow"
-                className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-8">
-                <div>
-                  <div className="text-white/60 text-xs uppercase tracking-widest font-bold mb-1">Design & Strategy</div>
-                  <div className="text-white font-['Anton'] text-2xl uppercase">Process Framework</div>
-                </div>
-              </div>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.25 }}
-              className="group relative overflow-hidden rounded-2xl border border-black/10 shadow-sm"
-            >
-              <img
-                src={workImg2}
-                alt="Campaign — Contact & Distribution"
-                className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-8">
-                <div>
-                  <div className="text-white/60 text-xs uppercase tracking-widest font-bold mb-1">Brand & Distribution</div>
-                  <div className="text-white font-['Anton'] text-2xl uppercase">Global Reach</div>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
 
       {/* STRATEGY SECTION */}
       <section className="bg-[#fcfcfc] py-24 md:py-36 px-6 md:px-12 overflow-hidden border-t border-black/5" id="about">
