@@ -328,49 +328,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CARD SPREAD */}
-      <section id="results" style={{ backgroundColor: DARK_BG }} className="py-24 md:py-36 px-6 md:px-12 text-center overflow-hidden">
-        <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
-          className="text-[#9ca1a2] uppercase tracking-[0.3em] text-xs font-bold mb-4">
-          What We Deliver
-        </motion.p>
-        <motion.h2 initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-          transition={{ duration: 0.9 }}
-          className="font-['Anton'] text-[clamp(2.5rem,6vw,6rem)] leading-[1] uppercase text-white mb-16">
-          MILLIONS OF<br /><span className="text-[#e5e1df]">VIEWS</span> DELIVERED.
-        </motion.h2>
-        <div className="relative flex justify-center items-center h-[340px] md:h-[440px]">
-          {[
-            { rotate: -35, x: -280, y: 40, bg: "from-[#9ca1a2] to-[#737373]", platform: "TikTok", client: "Scrumptious Brands", metric: "31.2M views", sub: "8-week content sprint" },
-            { rotate: -20, x: -170, y: -10, bg: "from-[#e6dada] to-[#c8b8b8]", platform: "Meta", client: "Kinzie", metric: "6.4× ROAS", sub: "$22K → $141K revenue" },
-            { rotate: -8, x: -70, y: -30, bg: "from-[#737373] to-[#555]", platform: "Google", client: "Kubera Markets", metric: "+418% leads", sub: "vs. prior 90 days" },
-            { rotate: 5, x: 40, y: -30, bg: "from-[#e5e1df] to-[#c4bfbb]", platform: "Instagram", client: "Aga Smör", metric: "204K followers", sub: "gained in 4 months" },
-            { rotate: 18, x: 150, y: -10, bg: "from-[#9ca1a2] to-[#6a7071]", platform: "TikTok", client: "Da Kine Hawaiian", metric: "18.7M views", sub: "zero paid spend" },
-            { rotate: 32, x: 260, y: 40, bg: "from-[#e6dada] to-[#b8a8a8]", platform: "Meta", client: "PostNet SA", metric: "5.9× ROAS", sub: "franchise-wide campaign" },
-          ].map((card, i) => (
-            <motion.div key={i}
-              initial={{ opacity: 0, y: 60, rotate: 0 }}
-              whileInView={{ opacity: 1, y: card.y, rotate: card.rotate }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
-              style={{ x: card.x } as React.CSSProperties}
-              className="absolute w-[120px] h-[160px] md:w-[150px] md:h-[200px] rounded-xl overflow-hidden shadow-2xl border border-white/10"
-            >
-              <div className={`w-full h-full bg-gradient-to-br ${card.bg} flex flex-col justify-between p-3`}>
-                <div className="flex items-center justify-between">
-                  <div className="w-5 h-5 rounded-full bg-black/20" />
-                  <span className="text-[8px] font-bold uppercase tracking-widest text-black/40">{card.platform}</span>
-                </div>
-                <div>
-                  <div className="text-black/50 text-[8px] font-bold uppercase tracking-wider mb-0.5">{card.client}</div>
-                  <div className="text-black/80 font-bold text-sm">{card.metric}</div>
-                  <div className="text-black/40 text-[8px] font-semibold">{card.sub}</div>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </section>
 
       {/* SERVICES */}
       <section id="services" className="bg-[#fcfcfc] py-16 md:py-24 overflow-hidden">
