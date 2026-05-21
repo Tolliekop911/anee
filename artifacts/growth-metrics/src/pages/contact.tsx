@@ -212,7 +212,7 @@ export default function Contact() {
               href="mailto:growthmetricssmm@gmail.com"
               className="text-[#e5e1df] text-lg font-['Manrope'] hover:text-white transition-colors"
             >
-              growthmetricssmm@gmail.com
+              marketing@growthmetricsmedia.com
             </a>
           </div>
 
