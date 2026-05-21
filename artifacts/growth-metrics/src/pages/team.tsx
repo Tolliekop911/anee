@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import logoImg from "@assets/logo_transparent.png";
 import person1Img from "@assets/photo_2026-05-21_04-58-21_1779353908096.jpg";
@@ -25,6 +26,7 @@ const VALUES = [
 ];
 
 export default function Team() {
+  const [open, setOpen] = useState(false);
   return (
     <div className="min-h-screen font-['Manrope'] overflow-x-hidden" style={{ backgroundColor: DARK_BG }}>
 
@@ -36,14 +38,32 @@ export default function Team() {
         <div className="hidden md:flex gap-8 text-xs font-bold uppercase tracking-[0.2em] text-white/50">
           <a href="/#services" className="hover:text-white transition-colors">Services</a>
           <a href="/process" className="hover:text-white transition-colors">Process</a>
-          <a href="/#results" className="hover:text-white transition-colors">Results</a>
           <a href="/team" className="text-white">Team</a>
           <a href="/contact" className="hover:text-white transition-colors">Contact</a>
         </div>
-        <a href="/contact" className="bg-[#e5e1df] text-black text-xs font-bold uppercase tracking-widest px-5 py-2.5 rounded-full hover:bg-white transition-colors">
-          Work With Us
-        </a>
+        <div className="flex items-center gap-3">
+          <a href="/contact" className="hidden md:inline-flex bg-[#e5e1df] text-black text-xs font-bold uppercase tracking-widest px-5 py-2.5 rounded-full hover:bg-white transition-colors">
+            Work With Us
+          </a>
+          <button className="md:hidden flex flex-col justify-center items-center w-9 h-9 gap-1.5" onClick={() => setOpen(o => !o)} aria-label="Toggle menu">
+            <span className={`block w-6 h-0.5 bg-white transition-all duration-300 ${open ? "rotate-45 translate-y-2" : ""}`} />
+            <span className={`block w-6 h-0.5 bg-white transition-all duration-300 ${open ? "opacity-0" : ""}`} />
+            <span className={`block w-6 h-0.5 bg-white transition-all duration-300 ${open ? "-rotate-45 -translate-y-2" : ""}`} />
+          </button>
+        </div>
       </nav>
+      {open && (
+        <div className="fixed inset-0 z-50 flex flex-col pt-24 px-8 pb-10" style={{ backgroundColor: DARK_BG }}>
+          <div className="flex flex-col gap-8 text-3xl font-['Anton'] uppercase text-white/80">
+            {([["/#services","Services"],["/process","Process"],["/team","Team"],["/contact","Contact"]] as [string,string][]).map(([href,label]) => (
+              <a key={label} href={href} onClick={() => setOpen(false)} className="hover:text-white transition-colors">{label}</a>
+            ))}
+          </div>
+          <a href="/contact" onClick={() => setOpen(false)} className="mt-auto bg-[#e5e1df] text-black text-sm font-bold uppercase tracking-widest px-6 py-4 rounded-full text-center hover:bg-white transition-colors">
+            Work With Us
+          </a>
+        </div>
+      )}
 
       {/* HEADER */}
       <div className="px-6 md:px-12 pt-20 pb-16 max-w-7xl mx-auto">
