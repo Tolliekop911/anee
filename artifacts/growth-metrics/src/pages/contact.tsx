@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import logoImg from "@assets/logo_transparent.png";
 
-const PROJECT_TYPES = ["Digital Product", "3D Experience", "Brand Identity", "Other"];
+const PROJECT_TYPES = ["Social Media", "Content Creation", "Google Ads", "Meta Ads", "Strategy", "Other"];
 
 const SOCIALS = [
   {
@@ -14,8 +14,8 @@ const SOCIALS = [
       </svg>
     ),
     label: "INSTAGRAM",
-    handle: "@arch_studio",
-    href: "#",
+    handle: "@growth_metrics_marketing",
+    href: "https://www.instagram.com/growth_metrics_marketing/",
   },
   {
     icon: (
@@ -24,30 +24,18 @@ const SOCIALS = [
       </svg>
     ),
     label: "TIKTOK",
-    handle: "@arch_labs",
-    href: "#",
+    handle: "@growth.metrics",
+    href: "https://www.tiktok.com/@growth.metrics",
   },
   {
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="2" y="9" width="4" height="12"/>
-        <circle cx="4" cy="4" r="2"/>
-        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-12h4v1.765"/>
+        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
       </svg>
     ),
-    label: "LINKEDIN",
+    label: "FACEBOOK",
     handle: "Growth Metrics",
-    href: "#",
-  },
-  {
-    icon: (
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
-      </svg>
-    ),
-    label: "TWITTER",
-    handle: "@arch_hq",
-    href: "#",
+    href: "https://www.facebook.com/profile.php?id=61580258575596",
   },
 ];
 
@@ -202,21 +190,23 @@ export default function Contact() {
           <div>
             <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/40 mb-3">Email Us</p>
             <a
-              href="mailto:hello@growthmetrics.com"
+              href="mailto:growthmetricssmm@gmail.com"
               className="text-[#e5e1df] text-lg font-['Manrope'] hover:text-white transition-colors"
             >
-              hello@growthmetrics.com
+              growthmetricssmm@gmail.com
             </a>
           </div>
 
           {/* Social */}
           <div>
             <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/40 mb-4">Follow the Process</p>
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-3 gap-3">
               {SOCIALS.map((s) => (
                 <a
                   key={s.label}
                   href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="group flex flex-col gap-3 border border-white/10 rounded-xl p-5 hover:border-white/30 hover:bg-white/[0.03] transition-all"
                 >
                   <div className="text-white/50 group-hover:text-white/80 transition-colors">

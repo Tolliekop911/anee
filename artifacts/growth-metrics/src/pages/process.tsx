@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import logoImg from "@assets/logo_transparent.png";
+import processPersonImg from "@assets/photo_2026-05-21_04-59-08_1779353997617.jpg";
 
 const STEPS = [
   {
@@ -104,31 +105,41 @@ export default function Process() {
       </nav>
 
       {/* HEADER */}
-      <div className="px-6 md:px-12 pt-20 pb-16 max-w-7xl mx-auto">
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6 }}
-          className="text-[#9ca1a2] uppercase tracking-[0.3em] text-xs font-bold mb-6"
+      <div className="px-6 md:px-12 pt-20 pb-16 max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+        <div className="flex-1">
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6 }}
+            className="text-[#9ca1a2] uppercase tracking-[0.3em] text-xs font-bold mb-6"
+          >
+            How We Work
+          </motion.p>
+          <motion.h1
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+            className="font-['Anton'] text-[clamp(3rem,7vw,7rem)] leading-[0.95] uppercase text-white"
+          >
+            THE<br /><span className="text-[#e5e1df]">PROCESS.</span>
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="text-white/40 text-lg max-w-xl mt-8 leading-relaxed"
+          >
+            Four ruthlessly engineered phases. Every project runs through this framework — no shortcuts, no guesswork, no exceptions.
+          </motion.p>
+        </div>
+        <motion.div
+          initial={{ opacity: 0, x: 40 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+          className="shrink-0 w-full lg:w-[340px] h-[420px] rounded-3xl overflow-hidden shadow-2xl border border-white/10"
         >
-          How We Work
-        </motion.p>
-        <motion.h1
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-          className="font-['Anton'] text-[clamp(3rem,7vw,7rem)] leading-[0.95] uppercase text-white"
-        >
-          THE<br /><span className="text-[#e5e1df]">PROCESS.</span>
-        </motion.h1>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="text-white/40 text-lg max-w-xl mt-8 leading-relaxed"
-        >
-          Four ruthlessly engineered phases. Every project runs through this framework — no shortcuts, no guesswork, no exceptions.
-        </motion.p>
+          <img src={processPersonImg} alt="GrowthMetrics team" className="w-full h-full object-cover object-top" />
+        </motion.div>
       </div>
 
       {/* CARDS */}

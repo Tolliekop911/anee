@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import { motion, useInView, MotionValue } from "framer-motion";
 import logoImg from "@assets/logo_transparent.png";
 import ceoImg from "@assets/photo_2026-05-17_03-09-05_1779001781858.jpg";
+import heroPersonImg from "@assets/photo_2026-05-21_04-58-21_1779353908096.jpg";
 
 import clientTechnoFresh from "@assets/photo_2026-05-17_03-14-52_(2)_1779002162325.jpg";
 import clientSmoddo from "@assets/photo_2026-05-17_03-14-52_1779002162326.jpg";
@@ -180,64 +181,21 @@ export default function Home() {
         }} />
 
         <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-0">
-          <div className="relative w-full lg:w-1/2 flex justify-center lg:justify-start">
-            <div className="relative h-[300px] md:h-[380px] w-[280px] md:w-[360px]">
-              <motion.div
-                initial={{ opacity: 0, y: 40, rotate: -18 }}
-                animate={{ opacity: 1, y: 20, rotate: -18, x: -70 }}
-                transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                className="absolute w-[160px] h-[210px] md:w-[200px] md:h-[270px] rounded-2xl overflow-hidden shadow-2xl border border-white/10"
-              >
-                <div className="w-full h-full bg-gradient-to-br from-[#9ca1a2] to-[#737373] flex flex-col justify-between p-4">
-                  <div className="flex items-center justify-between">
-                    <div className="w-8 h-8 rounded-full bg-black/20" />
-                    <span className="text-[9px] font-bold uppercase tracking-widest text-black/40">TikTok</span>
-                  </div>
-                  <div>
-                    <div className="text-[10px] font-bold uppercase tracking-widest text-black/50 mb-1">Haus of Sauce</div>
-                    <div className="text-xl font-bold text-black/80">22.4M</div>
-                    <div className="text-[10px] text-black/50 font-semibold">organic views · 90 days</div>
-                  </div>
-                </div>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, y: 40, rotate: -5 }}
-                animate={{ opacity: 1, y: 0, rotate: -5, x: -20 }}
-                transition={{ duration: 0.8, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
-                className="absolute w-[160px] h-[210px] md:w-[200px] md:h-[270px] rounded-2xl overflow-hidden shadow-2xl border border-white/10"
-              >
-                <div className="w-full h-full bg-gradient-to-br from-[#e6dada] to-[#d4c4c4] flex flex-col justify-between p-4">
-                  <div className="flex items-center justify-between">
-                    <div className="w-8 h-8 rounded-full bg-black/20" />
-                    <span className="text-[9px] font-bold uppercase tracking-widest text-black/40">Meta</span>
-                  </div>
-                  <div>
-                    <div className="text-[10px] font-bold uppercase tracking-widest text-black/50 mb-1">Barrel Proof</div>
-                    <div className="text-xl font-bold text-black/80">7.8× ROAS</div>
-                    <div className="text-[10px] text-black/50 font-semibold">$48K spend → $374K rev</div>
-                  </div>
-                </div>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, y: 40, rotate: 10 }}
-                animate={{ opacity: 1, y: 30, rotate: 10, x: 50 }}
-                transition={{ duration: 0.8, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                className="absolute w-[160px] h-[210px] md:w-[200px] md:h-[270px] rounded-2xl overflow-hidden shadow-2xl border border-white/10"
-              >
-                <div className="w-full h-full bg-gradient-to-br from-[#e5e1df] to-[#c8c2bc] flex flex-col justify-between p-4">
-                  <div className="flex items-center justify-between">
-                    <div className="w-8 h-8 rounded-full bg-black/20" />
-                    <span className="text-[9px] font-bold uppercase tracking-widest text-black/40">Google</span>
-                  </div>
-                  <div>
-                    <div className="text-[10px] font-bold uppercase tracking-widest text-black/50 mb-1">PostNet SA</div>
-                    <div className="text-xl font-bold text-black/80">+312%</div>
-                    <div className="text-[10px] text-black/50 font-semibold">leads in 60 days</div>
-                  </div>
-                </div>
-              </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="relative w-full lg:w-1/2 flex justify-center lg:justify-start"
+          >
+            <div className="relative h-[420px] md:h-[560px] w-[300px] md:w-[400px] rounded-3xl overflow-hidden shadow-2xl border border-white/10">
+              <img src={heroPersonImg} alt="GrowthMetrics" className="w-full h-full object-cover object-top" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+              <div className="absolute bottom-6 left-6 right-6">
+                <div className="text-white/50 text-[10px] uppercase tracking-[0.3em] font-bold mb-1">Founder</div>
+                <div className="text-white font-['Anton'] text-xl uppercase">GrowthMetrics</div>
+              </div>
             </div>
-          </div>
+          </motion.div>
 
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8, delay: 0.1 }} className="w-full lg:w-1/2 lg:pl-12">
             <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }}
@@ -254,7 +212,7 @@ export default function Home() {
             </motion.p>
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.8 }}
               className="flex flex-wrap gap-8 mb-10">
-              {[["50B+", "Total Views"], ["600+", "Followers Gained"], ["450%", "Avg ROAS"]].map(([val, label]) => (
+              {[["5M+", "Total Views"], ["15+", "Brands Worked With"], ["3X", "Avg Engagement Growth"]].map(([val, label]) => (
                 <div key={label}>
                   <div className="font-['Anton'] text-3xl text-white">{val}</div>
                   <div className="text-[#737373] text-xs uppercase tracking-widest">{label}</div>
@@ -300,10 +258,10 @@ export default function Home() {
           </div>
           <div className="w-full lg:w-1/2 grid grid-cols-2 gap-4">
             {[
-              { val: "$100M+", label: "Revenue Generated" },
-              { val: "45", label: "Brands Scaled" },
-              { val: "5X", label: "Average ROI" },
-              { val: "92%", label: "Client Retention" },
+              { val: "5M+", label: "Total Content Views" },
+              { val: "15+", label: "Brands Worked With" },
+              { val: "3X", label: "Avg Engagement Growth" },
+              { val: "90%", label: "Client Satisfaction" },
             ].map(({ val, label }, i) => (
               <motion.div key={label} initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}
@@ -354,7 +312,7 @@ export default function Home() {
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.35 }}
               className="flex flex-wrap gap-10 mb-12">
-              {[["50B+", "Total Views"], ["600+", "Followers Gained"], ["450%", "Avg ROAS"]].map(([val, label]) => (
+              {[["5M+", "Total Views"], ["15+", "Brands Worked With"], ["3X", "Avg Engagement"], ["90%", "Client Satisfaction"]].map(([val, label]) => (
                 <div key={label}>
                   <div className="font-['Anton'] text-4xl md:text-5xl text-black">{val}</div>
                   <div className="text-black/40 text-xs uppercase tracking-widest mt-1">{label}</div>
@@ -384,7 +342,7 @@ export default function Home() {
         <motion.h2 initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
           transition={{ duration: 0.9 }}
           className="font-['Anton'] text-[clamp(2.5rem,6vw,6rem)] leading-[1] uppercase text-white mb-16">
-          BILLIONS OF<br /><span className="text-[#e5e1df]">IMPRESSIONS</span> DELIVERED.
+          MILLIONS OF<br /><span className="text-[#e5e1df]">VIEWS</span> DELIVERED.
         </motion.h2>
         <div className="relative flex justify-center items-center h-[340px] md:h-[440px]">
           {[
@@ -419,7 +377,7 @@ export default function Home() {
           <motion.div initial={{ opacity: 0, scale: 0.5 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.5 }}
             style={{ backgroundColor: DARK_BG }} className="relative z-10 border border-white/20 rounded-2xl px-6 py-4 shadow-2xl">
-            <div className="font-['Anton'] text-2xl text-white">50B+</div>
+            <div className="font-['Anton'] text-2xl text-white">5M+</div>
             <div className="text-[#9ca1a2] text-xs uppercase tracking-widest">Total Views</div>
           </motion.div>
         </div>
@@ -525,10 +483,9 @@ export default function Home() {
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
           <img src={logoImg} alt="GrowthMetrics" className="h-10 w-auto invert" />
           <div className="flex gap-8 text-black/40 text-sm font-bold uppercase tracking-widest">
-            <a href="#" className="hover:text-black transition-colors">Instagram</a>
-            <a href="#" className="hover:text-black transition-colors">LinkedIn</a>
-            <a href="#" className="hover:text-black transition-colors">TikTok</a>
-            <a href="#" className="hover:text-black transition-colors">Facebook</a>
+            <a href="https://www.instagram.com/growth_metrics_marketing/" target="_blank" rel="noopener noreferrer" className="hover:text-black transition-colors">Instagram</a>
+            <a href="https://www.tiktok.com/@growth.metrics" target="_blank" rel="noopener noreferrer" className="hover:text-black transition-colors">TikTok</a>
+            <a href="https://www.facebook.com/profile.php?id=61580258575596" target="_blank" rel="noopener noreferrer" className="hover:text-black transition-colors">Facebook</a>
           </div>
           <p className="text-black/30 text-sm">&copy; {new Date().getFullYear()} GrowthMetrics</p>
         </div>
