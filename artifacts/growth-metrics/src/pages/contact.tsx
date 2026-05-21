@@ -200,21 +200,21 @@ export default function Contact() {
           {/* Social */}
           <div>
             <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/40 mb-4">Follow the Process</p>
-            <div className="grid grid-cols-3 gap-3">
+            <div className="flex flex-col gap-3">
               {SOCIALS.map((s) => (
                 <a
                   key={s.label}
                   href={s.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex flex-col gap-3 border border-white/10 rounded-xl p-5 hover:border-white/30 hover:bg-white/[0.03] transition-all"
+                  className="group flex items-center gap-4 border border-white/10 rounded-xl px-5 py-4 hover:border-white/30 hover:bg-white/[0.03] transition-all"
                 >
-                  <div className="text-white/50 group-hover:text-white/80 transition-colors">
+                  <div className="text-white/50 group-hover:text-white/80 transition-colors shrink-0">
                     {s.icon}
                   </div>
-                  <div>
+                  <div className="min-w-0">
                     <div className="text-[10px] font-bold uppercase tracking-widest text-white/40 mb-0.5">{s.label}</div>
-                    <div className="text-white/80 text-sm font-['Manrope']">{s.handle}</div>
+                    <div className="text-white/80 text-sm font-['Manrope'] truncate">{s.handle}</div>
                   </div>
                 </a>
               ))}

@@ -1,26 +1,15 @@
 import { motion } from "framer-motion";
 import logoImg from "@assets/logo_transparent.png";
 import person1Img from "@assets/photo_2026-05-21_04-58-21_1779353908096.jpg";
-import person2Img from "@assets/photo_2026-05-21_04-59-08_1779353997617.jpg";
 
 const DARK_BG = "#0f0d0b";
 
 const TEAM = [
   {
     img: person1Img,
-    name: "Demi-Lee van Rensburg",
+    name: "Ane Snyman",
     role: "Founder & CEO",
-    bio: "Serial brand builder with a track record of taking brands from zero to viral. Demi-Lee leads strategy and client partnerships, ensuring every campaign is designed to dominate — not just participate.",
-    socials: {
-      ig: "https://www.instagram.com/growth_metrics_marketing/",
-      tiktok: "https://www.tiktok.com/@growth.metrics",
-    },
-  },
-  {
-    img: person2Img,
-    name: "Kayla Hendricks",
-    role: "Head of Content & Creative",
-    bio: "Creative director with an obsession for content that converts. Kayla oversees all production, visual strategy, and platform-native storytelling that turns audiences into buyers.",
+    bio: "Serial brand builder with a track record of taking brands from zero to viral. Ane leads strategy and client partnerships, ensuring every campaign is designed to dominate — not just participate.",
     socials: {
       ig: "https://www.instagram.com/growth_metrics_marketing/",
       tiktok: "https://www.tiktok.com/@growth.metrics",
@@ -86,7 +75,7 @@ export default function Team() {
 
       {/* TEAM CARDS */}
       <div className="px-6 md:px-12 pb-24 max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl">
           {TEAM.map((member, i) => (
             <motion.div
               key={member.name}
