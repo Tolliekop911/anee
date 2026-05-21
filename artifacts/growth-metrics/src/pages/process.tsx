@@ -91,7 +91,7 @@ export default function Process() {
       {/* NAV */}
       <nav className="flex items-center justify-between px-6 md:px-12 py-5 border-b border-white/5">
         <a href="/">
-          <img src={logoImg} alt="GrowthMetrics" className="h-12 md:h-14 w-auto invert" />
+          <img src={logoImg} alt="GrowthMetrics" className="h-14 md:h-16 w-auto invert" />
         </a>
         <div className="hidden md:flex gap-8 text-xs font-bold uppercase tracking-[0.2em] text-white/50">
           <a href="/#services" className="hover:text-white transition-colors">Services</a>
