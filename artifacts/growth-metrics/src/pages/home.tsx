@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { motion, useInView, MotionValue } from "framer-motion";
 import logoImg from "@assets/logo_transparent.png";
 import ceoImg from "@assets/photo_2026-05-17_03-09-05_1779001781858.jpg";
@@ -148,6 +148,7 @@ function ScrollCard({ quote, name, role }: { i: number; total: number; quote: st
 }
 
 export default function Home() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   return (
     <main style={{ backgroundColor: DARK_BG }} className="text-[#e5e1df] overflow-x-hidden font-['Manrope']">
 
@@ -159,17 +160,44 @@ export default function Home() {
         <div className="hidden md:flex gap-8 text-xs font-bold uppercase tracking-[0.2em] text-white/50">
           <a href="#services" className="hover:text-white transition-colors">Services</a>
           <a href="/process" className="hover:text-white transition-colors">Process</a>
-          <a href="#results" className="hover:text-white transition-colors">Results</a>
           <a href="/team" className="hover:text-white transition-colors">Team</a>
           <a href="/contact" className="hover:text-white transition-colors">Contact</a>
         </div>
-        <a href="/contact" className="bg-[#e5e1df] text-black text-xs font-bold uppercase tracking-widest px-5 py-2.5 rounded-full hover:bg-white transition-colors">
-          Work With Us
-        </a>
+        <div className="flex items-center gap-3">
+          <a href="/contact" className="hidden md:inline-flex bg-[#e5e1df] text-black text-xs font-bold uppercase tracking-widest px-5 py-2.5 rounded-full hover:bg-white transition-colors">
+            Work With Us
+          </a>
+          <button
+            className="md:hidden flex flex-col justify-center items-center w-9 h-9 gap-1.5"
+            onClick={() => setMobileMenuOpen(o => !o)}
+            aria-label="Toggle menu"
+          >
+            <span className={`block w-6 h-0.5 bg-white transition-all duration-300 ${mobileMenuOpen ? "rotate-45 translate-y-2" : ""}`} />
+            <span className={`block w-6 h-0.5 bg-white transition-all duration-300 ${mobileMenuOpen ? "opacity-0" : ""}`} />
+            <span className={`block w-6 h-0.5 bg-white transition-all duration-300 ${mobileMenuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
+          </button>
+        </div>
       </nav>
 
-      {/* HERO — fixed height, no black gap */}
-      <div className="relative h-screen flex items-center px-6 md:px-12 pt-20" style={{ background: `linear-gradient(135deg, ${DARK_BG} 0%, ${DARK_BG} 60%, ${DARK_BG_DEEP} 100%)` }}>
+      {/* MOBILE MENU OVERLAY */}
+      {mobileMenuOpen && (
+        <div className="fixed inset-0 z-40 flex flex-col pt-24 px-8 pb-10" style={{ backgroundColor: DARK_BG }}>
+          <div className="flex flex-col gap-8 text-3xl font-['Anton'] uppercase text-white/80">
+            {[["#services", "Services"], ["/process", "Process"], ["/team", "Team"], ["/contact", "Contact"]].map(([href, label]) => (
+              <a key={label} href={href} onClick={() => setMobileMenuOpen(false)} className="hover:text-white transition-colors">
+                {label}
+              </a>
+            ))}
+          </div>
+          <a href="/contact" onClick={() => setMobileMenuOpen(false)}
+            className="mt-auto bg-[#e5e1df] text-black text-sm font-bold uppercase tracking-widest px-6 py-4 rounded-full text-center hover:bg-white transition-colors">
+            Work With Us
+          </a>
+        </div>
+      )}
+
+      {/* HERO */}
+      <div className="relative min-h-screen flex items-center px-6 md:px-12 pt-28 pb-16 md:pt-20 md:pb-0" style={{ background: `linear-gradient(135deg, ${DARK_BG} 0%, ${DARK_BG} 60%, ${DARK_BG_DEEP} 100%)` }}>
         <div className="absolute inset-0 opacity-[0.03]" style={{
           backgroundImage: "linear-gradient(#e5e1df 1px, transparent 1px), linear-gradient(90deg, #e5e1df 1px, transparent 1px)",
           backgroundSize: "60px 60px"
@@ -182,8 +210,8 @@ export default function Home() {
             transition={{ duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             className="relative w-full lg:w-1/2 flex justify-center lg:justify-start"
           >
-            <div className="relative h-[420px] md:h-[560px] w-[300px] md:w-[400px] rounded-3xl overflow-hidden shadow-2xl border border-white/10">
-              <img src={heroPersonImg} alt="GrowthMetrics" className="w-full h-full object-cover object-top" />
+            <div className="relative h-[380px] md:h-[560px] w-[280px] md:w-[400px] rounded-3xl overflow-hidden shadow-2xl border border-white/10">
+              <img src={heroPersonImg} alt="GrowthMetrics" className="w-full h-full object-cover" style={{ objectPosition: "50% 15%" }} />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
               <div className="absolute bottom-6 left-6 right-6">
                 <div className="text-white/50 text-[10px] uppercase tracking-[0.3em] font-bold mb-1">Founder</div>
