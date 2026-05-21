@@ -59,13 +59,13 @@ export default function Contact() {
       {/* NAV */}
       <nav className="flex items-center justify-between px-6 md:px-12 py-5 border-b border-white/5">
         <a href="/">
-          <img src={logoImg} alt="GrowthMetrics" className="h-7 md:h-9 w-auto invert" />
+          <img src={logoImg} alt="GrowthMetrics" className="h-12 md:h-14 w-auto invert" />
         </a>
         <div className="hidden md:flex gap-8 text-xs font-bold uppercase tracking-[0.2em] text-white/50">
           <a href="/#services" className="hover:text-white transition-colors">Services</a>
           <a href="/process" className="hover:text-white transition-colors">Process</a>
           <a href="/#results" className="hover:text-white transition-colors">Results</a>
-          <a href="/#about" className="hover:text-white transition-colors">About</a>
+          <a href="/team" className="hover:text-white transition-colors">Team</a>
           <a href="/contact" className="text-white">Contact</a>
         </div>
         <a href="/contact" className="bg-[#e5e1df] text-black text-xs font-bold uppercase tracking-widest px-5 py-2.5 rounded-full hover:bg-white transition-colors">

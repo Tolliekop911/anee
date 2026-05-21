@@ -98,11 +98,11 @@ function ClientLogoTicker({ reverse = false }: { reverse?: boolean }) {
     <div className="overflow-hidden">
       <div className={`flex gap-8 ${reverse ? "animate-ticker-reverse" : "animate-ticker"} whitespace-nowrap`}>
         {items.map((logo, i) => (
-          <div key={i} className="shrink-0 flex items-center justify-center h-14 w-32 mx-2">
+          <div key={i} className="shrink-0 flex items-center justify-center h-20 w-44 mx-3">
             <img
               src={logo.src}
               alt={logo.alt}
-              className="h-12 w-auto max-w-[120px] object-contain"
+              className="h-16 w-auto max-w-[160px] object-contain"
               style={{ mixBlendMode: "multiply" }}
             />
           </div>
@@ -126,11 +126,6 @@ function ServiceRow({ num, title, desc, i }: { num: string; title: string; desc:
       <span className="text-black/20 font-['Anton'] text-3xl w-16 shrink-0">{num}</span>
       <h3 className="font-['Anton'] text-3xl md:text-4xl text-black uppercase tracking-wide flex-1 group-hover:text-[#737373] transition-colors">{title}</h3>
       <p className="text-black/50 text-sm md:text-base font-['Manrope'] max-w-sm leading-relaxed">{desc}</p>
-      <div className="shrink-0 w-8 h-8 rounded-full border border-black/20 flex items-center justify-center group-hover:bg-black group-hover:border-black transition-all">
-        <svg width="12" height="12" viewBox="0 0 12 12" className="group-hover:invert transition-all">
-          <path d="M2 6h8M7 3l3 3-3 3" stroke="black" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
-        </svg>
-      </div>
     </motion.div>
   );
 }
@@ -159,13 +154,13 @@ export default function Home() {
       {/* NAV */}
       <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12 py-4 backdrop-blur-md border-b border-white/5" style={{ backgroundColor: `${DARK_BG}cc` }}>
         <a href="/">
-          <img src={logoImg} alt="GrowthMetrics" className="h-10 md:h-12 w-auto" />
+          <img src={logoImg} alt="GrowthMetrics" className="h-14 md:h-16 w-auto" />
         </a>
         <div className="hidden md:flex gap-8 text-xs font-bold uppercase tracking-[0.2em] text-white/50">
           <a href="#services" className="hover:text-white transition-colors">Services</a>
           <a href="/process" className="hover:text-white transition-colors">Process</a>
           <a href="#results" className="hover:text-white transition-colors">Results</a>
-          <a href="#about" className="hover:text-white transition-colors">About</a>
+          <a href="/team" className="hover:text-white transition-colors">Team</a>
           <a href="/contact" className="hover:text-white transition-colors">Contact</a>
         </div>
         <a href="/contact" className="bg-[#e5e1df] text-black text-xs font-bold uppercase tracking-widest px-5 py-2.5 rounded-full hover:bg-white transition-colors">
@@ -481,7 +476,7 @@ export default function Home() {
       {/* FOOTER */}
       <footer className="bg-[#fcfcfc] pt-12 pb-10 px-6 md:px-12 border-t border-black/10">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
-          <img src={logoImg} alt="GrowthMetrics" className="h-10 w-auto invert" />
+          <img src={logoImg} alt="GrowthMetrics" className="h-14 w-auto invert" />
           <div className="flex gap-8 text-black/40 text-sm font-bold uppercase tracking-widest">
             <a href="https://www.instagram.com/growth_metrics_marketing/" target="_blank" rel="noopener noreferrer" className="hover:text-black transition-colors">Instagram</a>
             <a href="https://www.tiktok.com/@growth.metrics" target="_blank" rel="noopener noreferrer" className="hover:text-black transition-colors">TikTok</a>
