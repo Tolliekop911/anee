@@ -369,12 +369,6 @@ export default function Home() {
               </div>
             </motion.div>
           ))}
-          <motion.div initial={{ opacity: 0, scale: 0.5 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            style={{ backgroundColor: DARK_BG }} className="relative z-10 border border-white/20 rounded-2xl px-6 py-4 shadow-2xl">
-            <div className="font-['Anton'] text-2xl text-white">5M+</div>
-            <div className="text-[#9ca1a2] text-xs uppercase tracking-widest">Total Views</div>
-          </motion.div>
         </div>
       </section>
 
