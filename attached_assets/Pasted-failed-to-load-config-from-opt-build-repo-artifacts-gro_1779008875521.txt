@@ -1,0 +1,15 @@
+failed to load config from /opt/build/repo/artifacts/growth-metrics/vite.config.ts
+5:07:42 AM: error during build:
+5:07:42 AM: Error: BASE_PATH environment variable is required but was not provided.
+5:07:42 AM:     at file:///opt/build/repo/artifacts/growth-metrics/node_modules/.vite-temp/vite.config.ts.timestamp-1779008862361-62b1c33eaa13f.mjs:20:9
+5:07:42 AM:     at ModuleJob.run (node:internal/modules/esm/module_job:343:25)
+5:07:42 AM:     at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:681:26)
+5:07:42 AM:     at async loadConfigFromBundledFile (file:///opt/build/repo/node_modules/.pnpm/vite@7.3.3_@types+node@25.6.2_jiti@2.7.0_lightningcss@1.32.0_tsx@4.21.0_yaml@2.8.4/node_modules/vite/dist/node/chunks/config.js:35936:12)
+5:07:42 AM:     at async bundleAndLoadConfigFile (file:///opt/build/repo/node_modules/.pnpm/vite@7.3.3_@types+node@25.6.2_jiti@2.7.0_lightningcss@1.32.0_tsx@4.21.0_yaml@2.8.4/node_modules/vite/dist/node/chunks/config.js:35824:17)
+5:07:42 AM:     at async loadConfigFromFile (file:///opt/build/repo/node_modules/.pnpm/vite@7.3.3_@types+node@25.6.2_jiti@2.7.0_lightningcss@1.32.0_tsx@4.21.0_yaml@2.8.4/node_modules/vite/dist/node/chunks/config.js:35791:42)
+5:07:42 AM:     at async resolveConfig (file:///opt/build/repo/node_modules/.pnpm/vite@7.3.3_@types+node@25.6.2_jiti@2.7.0_lightningcss@1.32.0_tsx@4.21.0_yaml@2.8.4/node_modules/vite/dist/node/chunks/config.js:35440:22)
+5:07:42 AM:     at async createBuilder (file:///opt/build/repo/node_modules/.pnpm/vite@7.3.3_@types+node@25.6.2_jiti@2.7.0_lightningcss@1.32.0_tsx@4.21.0_yaml@2.8.4/node_modules/vite/dist/node/chunks/config.js:33895:19)
+5:07:42 AM:     at async CAC.<anonymous> (file:///opt/build/repo/node_modules/.pnpm/vite@7.3.3_@types+node@25.6.2_jiti@2.7.0_lightningcss@1.32.0_tsx@4.21.0_yaml@2.8.4/node_modules/vite/dist/node/cli.js:629:10)
+5:07:42 AM:  ELIFECYCLE  Command failed with exit code 1. (https://ntl.fyi/exit-code-1)
+5:07:42 AM: ​
+5:07:42 AM: "build.command" failed                                        
