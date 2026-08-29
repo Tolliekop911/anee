@@ -3,21 +3,20 @@ import { motion, useInView } from "framer-motion";
 
 /*
  * ─────────────────────────────────────────────────────────────
- *  PLACEHOLDER CHECKOUT LINKS
- *  Replace each `#checkout-...` below with the real Stripe Payment
- *  Link or Paystack payment URL for that plan.
- *  e.g. https://buy.stripe.com/xxxxxxxx  or  https://paystack.shop/pay/xxxxxxxx
+ *  CHECKOUT LINKS — Paystack payment pages per plan.
+ *  Add-on payment links live in the ADDONS array below.
+ *  To change a link, just replace the URL.
  * ─────────────────────────────────────────────────────────────
  */
 export const CHECKOUT = {
-  foundation: "#checkout-marketing-foundation",
-  growth: "#checkout-marketing-growth",
-  scale: "#checkout-marketing-scale",
-  accelerate: "#checkout-marketing-accelerate",
+  foundation: "https://paystack.shop/pay/yky4ljbqc-",
+  growth: "https://paystack.shop/pay/q-hlegm5zk",
+  scale: "https://paystack.shop/pay/1kxqxerisk",
+  accelerate: "https://paystack.shop/pay/o3tyj0bhe6",
   enterprise: "/contact",
-  webStarter: "#checkout-website-starter",
-  webProfessional: "#checkout-website-professional",
-  webPremium: "#checkout-website-premium",
+  webStarter: "https://paystack.shop/pay/3rt2c1adyb",
+  webProfessional: "https://paystack.shop/pay/kelbxndwmr",
+  webPremium: "https://paystack.shop/pay/az0qfxrqnf",
 };
 
 type Plan = {
@@ -188,22 +187,29 @@ const WEBSITE: Plan[] = [
   },
 ];
 
-const ADDONS: [string, string][] = [
-  ["Additional social media platform", "$100/mo"],
-  ["Additional 4 social posts", "$100"],
-  ["Additional short-form videos", "$150 / 4"],
-  ["Additional website page", "$75"],
-  ["Website maintenance", "$100–$250/mo"],
-  ["SEO management", "From $300/mo"],
-  ["Email marketing", "From $200/mo"],
-  ["Meta Ads management", "From $300/mo"],
-  ["Google Ads management", "From $300/mo"],
-  ["Landing page", "From $250"],
-  ["Brand strategy", "From $500"],
-  ["Logo & visual identity", "From $300"],
-  ["Professional copywriting", "From $200"],
-  ["E-commerce setup", "From $500"],
-  ["Marketing strategy / audit", "From $250"],
+type Addon = { name: string; price: string; href: string };
+
+const ADDONS: Addon[] = [
+  { name: "Additional social media platform", price: "$100/mo", href: "https://paystack.shop/pay/z4--zgxbfy" },
+  { name: "Additional 4 social posts", price: "$100", href: "https://paystack.shop/pay/u00l2hb8sj" },
+  { name: "Additional 4 short-form videos", price: "$150", href: "https://paystack.shop/pay/ue7go59z4h" },
+  { name: "SEO management", price: "From $300/mo", href: "https://paystack.shop/pay/5y1yi19miv" },
+  { name: "Email marketing", price: "From $200/mo", href: "https://paystack.shop/pay/vkzxywa1x2" },
+  { name: "Meta Ads management", price: "From $300/mo", href: "https://paystack.shop/pay/mha44j83jx" },
+  { name: "Google Ads management", price: "From $300/mo", href: "https://paystack.shop/pay/srbfbcmiqk" },
+  { name: "Landing page", price: "From $250", href: "https://paystack.shop/pay/tzmg8o5-v6" },
+  { name: "Brand strategy", price: "From $500", href: "https://paystack.shop/pay/qc-v4b91iv" },
+  { name: "Logo & visual identity", price: "From $300", href: "https://paystack.shop/pay/ro-xk-sdfw" },
+  { name: "Professional copywriting", price: "From $200", href: "https://paystack.shop/pay/yywvlaiy3s" },
+  { name: "E-commerce setup", price: "From $500", href: "https://paystack.shop/pay/gfugq47oy8" },
+  { name: "Marketing strategy & audit", price: "From $250", href: "https://paystack.shop/pay/4jgpetxvex" },
+  { name: "Additional website page", price: "$75", href: "https://paystack.shop/pay/jozutm0zjt" },
+  { name: "Website maintenance", price: "$100–$250/mo", href: "https://paystack.shop/pay/f5lxn52904" },
+  { name: "Website SEO optimization", price: "$300", href: "https://paystack.shop/pay/n-4gq7dz9j" },
+  { name: "Booking system integration", price: "$150", href: "https://paystack.shop/pay/4q75aup4t6" },
+  { name: "Payment integration", price: "$150", href: "https://paystack.shop/pay/wud41qrn8b" },
+  { name: "Website analytics & tracking", price: "$100", href: "https://paystack.shop/pay/-y3l2rjby8" },
+  { name: "Additional revision round", price: "$100", href: "https://paystack.shop/pay/fudo9oqwbk" },
 ];
 
 function Check() {
@@ -371,11 +377,22 @@ export default function PricingSections({ id }: { id?: string }) {
           initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}
           className="rounded-2xl overflow-hidden border border-white/10"
         >
-          {ADDONS.map(([service, price], i) => (
-            <div key={service} className={`flex items-center justify-between gap-4 px-6 py-4 border-b border-white/5 last:border-b-0 ${i % 2 === 0 ? "bg-white/[0.02]" : ""}`}>
-              <span className="text-white/60 text-sm">{service}</span>
-              <span className="text-[#e5e1df] text-sm font-bold whitespace-nowrap">{price}</span>
-            </div>
+          {ADDONS.map((addon, i) => (
+            <a
+              key={addon.name}
+              href={addon.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`group flex items-center justify-between gap-4 px-6 py-4 border-b border-white/5 last:border-b-0 transition-colors hover:bg-white/[0.05] ${i % 2 === 0 ? "bg-white/[0.02]" : ""}`}
+            >
+              <span className="text-white/60 text-sm group-hover:text-white transition-colors">{addon.name}</span>
+              <span className="flex items-center gap-2 whitespace-nowrap">
+                <span className="text-[#e5e1df] text-sm font-bold">{addon.price}</span>
+                <svg className="text-white/30 group-hover:text-[#e5e1df] transition-colors" width="12" height="12" viewBox="0 0 14 14" fill="none">
+                  <path d="M4 10l6-6M10 4H5M10 4v5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </span>
+            </a>
           ))}
         </motion.div>
       </section>
