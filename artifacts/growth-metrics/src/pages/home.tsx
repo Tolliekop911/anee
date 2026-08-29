@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import { Link } from "wouter";
 import { motion, useInView, MotionValue } from "framer-motion";
 import logoImg from "@assets/logo_transparent.png";
+import PricingSections from "@/components/pricing-sections";
 import ceoImg from "@assets/photo_2026-05-17_03-09-05_1779001781858.jpg";
 import heroPersonImg from "@assets/photo_2026-05-21_04-58-21_1779353908096.jpg";
 
@@ -161,6 +162,7 @@ export default function Home() {
         <div className="hidden md:flex gap-8 text-xs font-bold uppercase tracking-[0.2em] text-white/50">
           <a href="#services" className="hover:text-white transition-colors">Services</a>
           <a href="/process" className="hover:text-white transition-colors">Process</a>
+          <a href="/pricing" className="hover:text-white transition-colors">Pricing</a>
           <a href="/team" className="hover:text-white transition-colors">Team</a>
           <a href="/contact" className="hover:text-white transition-colors">Contact</a>
         </div>
@@ -184,7 +186,7 @@ export default function Home() {
       {mobileMenuOpen && (
         <div className="fixed inset-0 z-40 flex flex-col pt-24 px-8 pb-10" style={{ backgroundColor: DARK_BG }}>
           <div className="flex flex-col gap-8 text-3xl font-['Anton'] uppercase text-white/80">
-            {[["#services", "Services"], ["/process", "Process"], ["/team", "Team"], ["/contact", "Contact"]].map(([href, label]) => (
+            {[["#services", "Services"], ["/process", "Process"], ["/pricing", "Pricing"], ["/team", "Team"], ["/contact", "Contact"]].map(([href, label]) => (
               <a key={label} href={href} onClick={() => setMobileMenuOpen(false)} className="hover:text-white transition-colors">
                 {label}
               </a>
@@ -243,12 +245,12 @@ export default function Home() {
                 </div>
               ))}
             </motion.div>
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 1 }} className="flex gap-4">
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 1 }} className="flex flex-wrap gap-4">
               <a href="/contact" className="bg-[#e5e1df] text-black font-bold uppercase tracking-widest text-sm px-8 py-4 rounded-full hover:bg-white transition-colors">
                 Get Started
               </a>
-              <a href="#results" className="border border-white/20 text-white font-bold uppercase tracking-widest text-sm px-8 py-4 rounded-full hover:border-white/60 transition-colors">
-                See Results
+              <a href="/pricing" className="border border-white/20 text-white font-bold uppercase tracking-widest text-sm px-8 py-4 rounded-full hover:border-white/60 transition-colors">
+                View Pricing
               </a>
             </motion.div>
           </motion.div>
@@ -373,6 +375,32 @@ export default function Home() {
         </div>
         <div className="divide-y divide-black/10 border-t border-black/10">
           {SERVICES.map((s, i) => <ServiceRow key={i} {...s} i={i} />)}
+        </div>
+      </section>
+
+      {/* PRICING */}
+      <section id="pricing" style={{ backgroundColor: DARK_BG }} className="pt-24 md:pt-36 pb-8 overflow-hidden">
+        <div className="px-6 md:px-12 mb-4 text-center max-w-3xl mx-auto">
+          <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
+            className="text-[#9ca1a2] uppercase tracking-[0.3em] text-xs font-bold mb-4">
+            Pricing
+          </motion.p>
+          <motion.h2 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="font-['Anton'] text-[clamp(2.5rem,5vw,5rem)] uppercase leading-none text-white">
+            SIMPLE,<br /><span className="text-[#e5e1df]">SCALABLE PLANS.</span>
+          </motion.h2>
+          <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-white/40 text-lg mt-8 leading-relaxed">
+            Transparent packages for every stage of growth — from establishing your presence to running a full marketing department.
+          </motion.p>
+        </div>
+        <PricingSections />
+        <div className="text-center mt-12">
+          <a href="/pricing" className="inline-flex border border-white/20 text-white font-bold uppercase tracking-widest text-sm px-8 py-4 rounded-full hover:border-white/60 transition-colors">
+            See Full Pricing Page →
+          </a>
         </div>
       </section>
 

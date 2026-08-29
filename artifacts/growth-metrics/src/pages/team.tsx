@@ -38,6 +38,7 @@ export default function Team() {
         <div className="hidden md:flex gap-8 text-xs font-bold uppercase tracking-[0.2em] text-white/50">
           <a href="/#services" className="hover:text-white transition-colors">Services</a>
           <a href="/process" className="hover:text-white transition-colors">Process</a>
+          <a href="/pricing" className="hover:text-white transition-colors">Pricing</a>
           <a href="/team" className="text-white">Team</a>
           <a href="/contact" className="hover:text-white transition-colors">Contact</a>
         </div>
@@ -55,7 +56,7 @@ export default function Team() {
       {open && (
         <div className="fixed inset-0 z-50 flex flex-col pt-24 px-8 pb-10" style={{ backgroundColor: DARK_BG }}>
           <div className="flex flex-col gap-8 text-3xl font-['Anton'] uppercase text-white/80">
-            {([["/#services","Services"],["/process","Process"],["/team","Team"],["/contact","Contact"]] as [string,string][]).map(([href,label]) => (
+            {([["/#services","Services"],["/process","Process"],["/pricing","Pricing"],["/team","Team"],["/contact","Contact"]] as [string,string][]).map(([href,label]) => (
               <a key={label} href={href} onClick={() => setOpen(false)} className="hover:text-white transition-colors">{label}</a>
             ))}
           </div>

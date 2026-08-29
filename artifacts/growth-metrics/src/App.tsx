@@ -6,6 +6,7 @@ import NotFound from "@/pages/not-found";
 import Home from "@/pages/home";
 import Contact from "@/pages/contact";
 import Process from "@/pages/process";
+import Pricing from "@/pages/pricing";
 import Team from "@/pages/team";
 import Terms from "@/pages/terms";
 import PrivacyPolicy from "@/pages/privacy-policy";
@@ -19,6 +20,7 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/contact" component={Contact} />
       <Route path="/process" component={Process} />
+      <Route path="/pricing" component={Pricing} />
       <Route path="/team" component={Team} />
       <Route path="/terms" component={Terms} />
       <Route path="/privacy-policy" component={PrivacyPolicy} />
